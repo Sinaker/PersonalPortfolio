@@ -1,10 +1,16 @@
 import { useState } from "react";
-import { DownChevron, Html5, ReactLogo, CSS } from "../assets/Icons";
+import { DownChevron } from "../assets/Icons";
 import styles from "./fileExplorer.module.css";
 import File from "./file";
+import { useStore, TabId } from "../store/useStore";
 
 export default function FileExplorer({ className }: { className?: string }) {
-	const [isOpen, setIsOpen] = useState(false); // Boolean state
+	const [isOpen, setIsOpen] = useState(true); // Set to true by default to show files
+	const { files, selectFile } = useStore();
+
+	const handleFileClick = (fileId: TabId) => {
+		selectFile(fileId);
+	};
 
 	return (
 		<section className={`${styles.explorer} ${className}`}>
@@ -17,18 +23,27 @@ export default function FileExplorer({ className }: { className?: string }) {
 					<DownChevron />
 				</label>
 				<input
-					onChange={() => setIsOpen((prev) => !prev)} // Toggle boolean state
+					onChange={() => setIsOpen((prev) => !prev)}
 					type="checkbox"
 					id="checkbox"
+					checked={!isOpen}
 					hidden
 				/>
 				<span>PersonalPortfolio</span>
 			</div>
-			<div>
-				<File title={"Home.jsx"} icon={ReactLogo} />
-				<File title={"About.html"} icon={Html5} />
-				<File title={"Styles.css"} icon={CSS} />
-			</div>
+			{isOpen && (
+				<div>
+					{files.map(file => (
+						<div
+							key={file.id}
+							onClick={() => handleFileClick(file.id)}
+							className={file.isActive ? styles.activeFile : ""}
+						>
+							<File title={file.name} icon={file.icon} isActive={file.isActive} />
+						</div>
+					))}
+				</div>
+			)}
 		</section>
 	);
 }

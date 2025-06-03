@@ -6,6 +6,7 @@
     padding: 0.25rem 0;
     padding-left: 1.25rem;
     transition: all ease 0.2s;
+    cursor: pointer;
 }
 .bar:hover {
     background-color: #2f2e2e; /* Change background color on hover */
@@ -28,4 +29,10 @@
   width: 100%; /* Make the SVG take full width of the container */
   height: 100%;
   object-fit: contain; /* Ensure SVG maintains aspect ratio */
+}
+
+.activeFile {
+  background-color: rgba(30, 30, 30, 0.7);
+  font-weight: 500;
+  color: #fff;
 }

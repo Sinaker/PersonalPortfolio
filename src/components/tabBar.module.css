@@ -1,0 +1,138 @@
+.tabBar {
+  display: flex;
+  background-color: #1e1e1e;
+  height: 35px;
+  overflow-x: auto;
+  border-bottom: 1px solid #333;
+  /* Add custom scrollbar for tabBar */
+  scrollbar-width: thin;
+  scrollbar-color: #555 #1e1e1e;
+}
+
+/* Custom scrollbar for browsers that support it */
+.tabBar::-webkit-scrollbar {
+  height: 6px;
+}
+
+.tabBar::-webkit-scrollbar-track {
+  background: #1e1e1e;
+}
+
+.tabBar::-webkit-scrollbar-thumb {
+  background-color: #555;
+  border-radius: 3px;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  background-color: #2d2d2d;
+  color: #ccc;
+  font-size: 0.8rem;
+  cursor: pointer;
+  border-right: 1px solid #1e1e1e;
+  min-width: 120px;
+  max-width: 160px;
+  position: relative;
+  transition: all 0.2s ease;
+  border-top: 1px solid transparent;
+  user-select: none; /* Prevent text selection */
+}
+
+.tab:hover {
+  background-color: #333;
+}
+
+.activeTab {
+  background-color: #1e1e1e;
+  color: #fff;
+  border-top: 1px solid orange; /* Orange accent color */
+  /* Add subtle bottom indicator as well for active tab */
+  box-shadow: inset 0 -1px 0 rgba(255, 165, 0, 0.1);
+}
+
+.tabIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 6px;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.tabIcon svg {
+  width: 100%;
+  height: 100%;
+  max-height: 14px; /* Control the icon size */
+}
+
+.activeTab .tabIcon {
+  opacity: 1;
+}
+
+.tabTitle {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding-top: 1px; /* Slight adjustment for vertical alignment */
+}
+
+.closeTab {
+  background: none;
+  border: none;
+  color: #ccc;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 4px;
+  border-radius: 4px;
+  opacity: 0.5;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.tab:hover .closeTab {
+  opacity: 0.8;
+}
+
+.closeTab:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  opacity: 1;
+}
+
+.closeTab:active {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: scale(0.9);
+}
+
+/* New divider style for a more authentic VS Code look */
+.tab::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 10%;
+  height: 80%;
+  width: 1px;
+  background-color: #333;
+}
+
+/* Last tab doesn't need the divider */
+.tab:last-child::after {
+  display: none;
+}
+
+/* Smooth animation for tab transitions */
+.tabBar > div {
+  transition: all 0.2s ease;
+}

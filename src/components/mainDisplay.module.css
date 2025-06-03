@@ -1,0 +1,185 @@
+.mainDisplay {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #1e1e1e;
+  overflow: hidden;
+}
+
+.editorContainer {
+  flex: 1;
+  overflow: auto;
+  padding: 20px;
+}
+
+.editorContent {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.animate {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.8s ease-out, transform 0.6s ease-out;
+}
+
+.contentSection {
+  color: #e1e4e8;
+  font-family: 'Fira Code', monospace;
+  line-height: 1.6;
+}
+
+.welcomeHeader {
+  margin-bottom: 40px;
+}
+
+.welcomeHeader h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #e1e4e8;
+  animation: fadeIn 1s ease-out;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #607B96;
+  margin-top: 0;
+  animation: fadeIn 1.2s ease-out;
+}
+
+.codeComment {
+  color: #6A9955;
+  margin: 15px 0;
+  animation: slideInRight 0.6s ease-out forwards;
+  animation-delay: 0.3s;
+  opacity: 0;
+}
+
+.codeLine {
+  margin: 5px 0;
+  animation: slideInRight 0.6s ease-out forwards;
+  animation-delay: 0.4s;
+  opacity: 0;
+}
+
+.codeBlock {
+  margin-left: 20px;
+  animation: slideInRight 0.6s ease-out forwards;
+  animation-delay: 0.5s;
+  opacity: 0;
+}
+
+.keyword {
+  color: #569CD6;
+}
+
+.variable {
+  color: #9CDCFE;
+}
+
+.property {
+  color: #9CDCFE;
+}
+
+.string {
+  color: #CE9178;
+}
+
+.aboutFunction {
+  margin-top: 10px;
+}
+
+.functionBody {
+  margin-left: 20px;
+}
+
+.terminalSection {
+  margin-top: 40px;
+  border: 1px solid #333;
+  border-radius: 4px;
+  overflow: hidden;
+  animation: fadeIn 1s ease-out forwards;
+  animation-delay: 1s;
+  opacity: 0;
+}
+
+.terminalHeader {
+  background-color: #333;
+  padding: 5px 10px;
+  font-size: 0.8rem;
+  color: #ccc;
+}
+
+.terminal {
+  background-color: #1e1e1e;
+  padding: 15px;
+  font-family: 'Consolas', monospace;
+}
+
+.terminalLine {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.prompt {
+  color: #569CD6;
+  margin-right: 5px;
+}
+
+.command {
+  color: #DCDCAA;
+}
+
+.terminalOutput {
+  color: #CE9178;
+  margin-bottom: 10px;
+  animation: typewriter 2s steps(60, end) 1.5s forwards;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+}
+
+.cursor {
+  display: inline-block;
+  animation: blink 1s step-end infinite;
+  color: #e1e4e8;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
