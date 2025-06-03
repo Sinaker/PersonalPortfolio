@@ -1,0 +1,53 @@
+.footer {
+	background: #24292e;
+	height: 25px;
+	border-top: 1px solid #1b1f23;
+	color: #e1e4e8;
+	padding: 0 .5rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	font-size: .8rem;
+}
+.footerDiv {
+	display: flex;
+	align-items: center;
+}
+svg {
+	min-height: 70%;
+	margin-right: 5px;
+}
+.github {
+	margin-right: .5rem;
+	height: 24px;
+	padding: 0 .2rem;
+	cursor: pointer;
+	font-family: Source Sans Pro, sans-serif;
+	display: flex;
+	align-items: center;
+}
+.errors {
+	margin-right: .5rem;
+	height: 24px;
+	padding: 0 .2rem;
+	cursor: pointer;
+	font-family: Source Sans Pro, sans-serif;
+	display: flex;
+	align-items: center;
+}
+.poweredBy {
+	margin-right: .5rem;
+	height: 24px;
+	padding: 0 .2rem;
+	cursor: pointer;
+	font-family: Source Sans Pro, sans-serif;
+	display: flex;
+}
+.poweredByDiv {
+	display: flex;
+	align-items: center;
+	padding-inline: 0.5rem;
+}
+a {
+	text-decoration: none;
+}

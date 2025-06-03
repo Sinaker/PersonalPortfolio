@@ -1,8 +1,9 @@
+import { Search } from "../assets/Icons";
 import styles from "./Header.module.css";
 import logo from "/vscode.svg";
-export default function Header() {
+export default function Header({ className }: { className?: string }) {
 	return (
-		<div className={styles.root}>
+		<div className={`${styles.root} ${className || ""}`}>
 			<div className={styles.logo}>
 				<img src={logo} className={styles.logoimg} alt="VSCode Logo" />
 			</div>
@@ -16,10 +17,7 @@ export default function Header() {
 				<p>Help</p>
 			</div>
 			<div className={styles.title}>
-				<div className={styles.lens}>
-					<span className={styles.circle} />
-					<span className={styles.handle} />
-				</div>
+				<Search />
 				Kanishk Pandey - Visual Studio Code
 			</div>
 			<div className={styles.buttons}>

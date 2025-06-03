@@ -73,35 +73,6 @@
 	background-color: #50fa7b;
 }
 
-.lens {
-	position: relative;
-	width: 0.8rem;
-	height: 0.8rem;
-}
-
-.circle {
-	display: inline-block;
-	width: 0.4rem;
-	height: 0.4rem;
-	border: 1px solid #a3a3a3;
-	border-radius: 50%;
-	position: absolute;
-	top: 0;
-	left: 0;
-	background-color: transparent;
-}
-
-.handle {
-	position: absolute;
-	width: 1px;
-	height: 0.4rem;
-	background-color: #a3a3a3;
-	top: 6px;
-	left: -1px;
-	transform: rotate(35deg);
-	border-radius: 5px;
-}
-
 p:hover {
 	background-color: #454545;
 	cursor: pointer;

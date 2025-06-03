@@ -1,0 +1,36 @@
+.explorer {
+	width: 13vw;
+	height: calc(100vh - 30px - 25px);
+	background-color: #181818;
+	/* background-color: red; */
+	color: #e1e4e8;
+	font-family: Source Sans Pro, sans-serif;
+}
+.title {
+	padding: 0.6rem 1.25rem;
+	font-weight: 300;
+	font-size: .8rem;
+	margin: 0;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+.project {
+	background-color: #111;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	font-weight: bold;
+	gap: 0.5rem;
+	text-transform: uppercase;
+	font-size: 0.7rem;
+	padding-block: 0.25rem;
+}
+.chevron {
+	display: flex;
+	align-items: center;
+	transition: all 0.3s;
+	margin-left: 0.05rem;
+}
+.active {
+	transform: rotate(-90deg);
+}

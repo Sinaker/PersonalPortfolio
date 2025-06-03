@@ -1,0 +1,26 @@
+.appContainer {
+	display: grid;
+	grid-template-areas:
+		"header header header"
+		"sidepanel fileExplorer ."
+		"footer footer footer";	
+	grid-template-columns: 4.5vw 13vw 1fr; /* Adjust column widths */
+	/*4.5vw 18vw remaing*/
+	height: 100vh; /* Makes the app fill the viewport */
+}
+
+.header {
+	grid-area: header;
+}
+
+.sidepanel {
+	grid-area: sidepanel;
+}
+
+.fileExplorer {
+	grid-area: fileExplorer;
+}
+
+.footer {
+	grid-area: footer;
+}
