@@ -2,12 +2,15 @@ import { useState, useEffect } from "react";
 import styles from "./mainDisplay.module.css";
 import TabBar from "../components/tabBar";
 import { useStore } from "../store/useStore";
+import Home from "./home";
 
 interface MainDisplayProps {
     className?: string;
 }
 
-// Content sections
+// Content components for each tab type
+const HomeContent = () => <Home />;
+
 const AboutContent = () => (
     <div className={styles.contentSection}>
         <div className={styles.welcomeHeader}>
@@ -54,6 +57,47 @@ const AboutContent = () => (
     </div>
 );
 
+const SkillsContent = () => (
+    <div className={styles.contentSection}>
+        <h1>My Skills</h1>
+        <div className={styles.codeComment}>// Technical skills and expertise</div>
+        <div className={styles.codeLine}>
+            <span className={styles.keyword}>const</span>
+            <span className={styles.variable}>skills</span> = {'{'}
+        </div>
+        <div className={styles.codeBlock}>
+            <div><span className={styles.property}>languages:</span> [<span className={styles.string}>"JavaScript"</span>, <span className={styles.string}>"TypeScript"</span>, <span className={styles.string}>"HTML"</span>, <span className={styles.string}>"CSS"</span>],</div>
+            <div><span className={styles.property}>frameworks:</span> [<span className={styles.string}>"React"</span>, <span className={styles.string}>"Next.js"</span>, <span className={styles.string}>"Tailwind CSS"</span>],</div>
+            <div><span className={styles.property}>tools:</span> [<span className={styles.string}>"Git"</span>, <span className={styles.string}>"VS Code"</span>, <span className={styles.string}>"Webpack"</span>],</div>
+        </div>
+        <div className={styles.codeLine}>{'}'};</div>
+    </div>
+);
+
+const ProjectsContent = () => (
+    <div className={styles.contentSection}>
+        <h1>My Projects</h1>
+        <div className={styles.codeComment}>// Showcase of my recent work</div>
+        {/* Project content here */}
+    </div>
+);
+
+const ContactContent = () => (
+    <div className={styles.contentSection}>
+        <h1>Contact Me</h1>
+        <div className={styles.codeComment}>/* Let's connect */</div>
+        {/* Contact content here */}
+    </div>
+);
+
+const ResumeContent = () => (
+    <div className={styles.contentSection}>
+        <h1>My Resume</h1>
+        <div className={styles.codeComment}>// Professional experience and education</div>
+        {/* Resume content here */}
+    </div>
+);
+
 export default function MainDisplay({ className }: MainDisplayProps) {
     const [animateContent, setAnimateContent] = useState(false);
     const { tabs } = useStore();
@@ -72,8 +116,12 @@ export default function MainDisplay({ className }: MainDisplayProps) {
             <div className={styles.editorContainer}>
                 <div className={`${styles.editorContent} ${animateContent ? styles.animate : ""}`}>
                     {/* Conditionally render content based on active tab */}
+                    {activeTabId === "home" && <HomeContent />}
                     {activeTabId === "about" && <AboutContent />}
-                    {/* Add other content sections based on active tab */}
+                    {activeTabId === "skills" && <SkillsContent />}
+                    {activeTabId === "projects" && <ProjectsContent />}
+                    {activeTabId === "contact" && <ContactContent />}
+                    {activeTabId === "resume" && <ResumeContent />}
                 </div>
             </div>
         </div>

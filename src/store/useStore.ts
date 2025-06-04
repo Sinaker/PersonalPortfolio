@@ -2,7 +2,7 @@ import { create } from 'zustand';
 import { Html5, ReactLogo, CSS, JS } from "../assets/Icons";
 
 // Define tab types that correspond to sidebar items
-export type TabId = "about" | "skills" | "projects" | "contact" | "resume";
+export type TabId = "home" | "about" | "skills" | "projects" | "contact" | "resume";
 
 export interface Tab {
     id: TabId;
@@ -30,12 +30,13 @@ interface StoreState {
 export const useStore = create<StoreState>((set, get) => ({
     // Initial tabs
     tabs: [
-        { id: "about", title: "About.jsx", icon: ReactLogo, active: true },
+        { id: "home", title: "Home.jsx", icon: ReactLogo, active: true },
     ],
 
     // Initial files in explorer
     files: [
-        { id: "about", name: "About.jsx", icon: ReactLogo, isActive: true },
+        { id: "home", name: "Home.jsx", icon: ReactLogo, isActive: true },
+        { id: "about", name: "About.jsx", icon: ReactLogo, isActive: false },
         { id: "skills", name: "Skills.html", icon: Html5, isActive: false },
         { id: "projects", name: "Projects.jsx", icon: ReactLogo, isActive: false },
         { id: "contact", name: "Contact.css", icon: CSS, isActive: false },
