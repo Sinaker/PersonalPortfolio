@@ -1,0 +1,17 @@
+.contentContainer {
+  padding: 2rem;
+  height: 100%;
+  overflow-y: auto;
+}
+
+@media (max-width: 768px) {
+  .contentContainer {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contentContainer {
+    padding: 0.5rem;
+  }
+}

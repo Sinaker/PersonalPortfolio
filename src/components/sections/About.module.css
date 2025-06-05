@@ -1,0 +1,45 @@
+.contentContainer {
+  padding: 2rem;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.codeEditor {
+  background-color: #0d1117;
+  border-radius: 8px;
+  padding: 1.5rem;
+  overflow-x: auto;
+  border: 1px solid #30363d;
+}
+
+.codeBlock {
+  margin: 0;
+  font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #c9d1d9;
+}
+
+@media (max-width: 768px) {
+  .contentContainer {
+    padding: 1rem;
+  }
+
+  .codeEditor {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contentContainer {
+    padding: 0.5rem;
+  }
+
+  .codeEditor {
+    padding: 0.75rem;
+  }
+
+  .codeBlock {
+    font-size: 0.8rem;
+  }
+}

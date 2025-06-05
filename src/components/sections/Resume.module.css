@@ -1,0 +1,93 @@
+.contentContainer {
+  padding: 2rem;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.resumeContainer {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #252526;
+  border-radius: 8px;
+  padding: 2rem;
+  border: 1px solid #3c3c3c;
+}
+
+.resumeHeader {
+  text-align: center;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid #007acc;
+  padding-bottom: 1rem;
+}
+
+.resumeHeader h1 {
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.resumeHeader p {
+  color: #a0a0a0;
+  margin: 0;
+}
+
+.resumeSection {
+  margin-bottom: 2rem;
+}
+
+.resumeSection h3 {
+  color: #ffffff;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #3c3c3c;
+  padding-bottom: 0.5rem;
+}
+
+.experienceItem,
+.educationItem {
+  margin-bottom: 1.5rem;
+}
+
+.experienceItem h4,
+.educationItem h4 {
+  color: #ffffff;
+  margin-bottom: 0.25rem;
+}
+
+.experienceItem p,
+.educationItem p {
+  color: #a0a0a0;
+  margin-bottom: 0.5rem;
+}
+
+.experienceItem ul {
+  list-style-type: disc;
+  margin-left: 1.5rem;
+  color: #d4d4d4;
+}
+
+.experienceItem li {
+  margin-bottom: 0.25rem;
+}
+
+@media (max-width: 768px) {
+  .contentContainer {
+    padding: 1rem;
+  }
+
+  .resumeContainer {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contentContainer {
+    padding: 0.5rem;
+  }
+
+  .resumeContainer {
+    padding: 1rem;
+  }
+
+  .resumeHeader h1 {
+    font-size: 1.5rem;
+  }
+}
