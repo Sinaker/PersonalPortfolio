@@ -1,51 +1,46 @@
 import React from 'react';
-import ProfileCard from '../../reactbits/Components/ProfileCard/ProfileCard';
+import { motion } from 'framer-motion';
 import RotatingText from '../../reactbits/TextAnimations/RotatingText/RotatingText';
+import Squares from '../../reactbits/Backgrounds/Squares/Squares';
 import styles from './Home.module.css';
 
 const Home: React.FC = () => {
+    const rotatingPhrases = [
+        "Turning coffee into code since 2018.",
+        "Full Stack Developer — Half Stack Sleep.",
+        "Crafting user experiences that don't crash... usually."
+    ];
+
     return (
         <div className={styles.homeContainer}>
-            <div className={styles.textSection}>
-                <div className={styles.rotatingTextWrapper}>
-                    <span className={styles.staticIntro}>Hi, I'm Kanishk, </span>
-                    <RotatingText
-                        texts={[
-                            "Developer",
-                            "Designer",
-                            "Debugger",
-                            "Student",
-                        ]}
-                        mainClassName={styles.rotatingTextMain}
-                        staggerFrom={"last"}
-                        initial={{ y: "100%" }}
-                        animate={{ y: 0 }}
-                        exit={{ y: "-120%" }}
-                        staggerDuration={0.025}
-                        splitLevelClassName={styles.splitLevel}
-                        transition={{ type: "spring", damping: 30, stiffness: 400 }}
-                        rotationInterval={2000}
-                    />
-                </div>
-                <p className={styles.subHeading}>
-                    Writing bugs faster than you can say 'console.log'
-                </p>
-            </div>
-            <div className={styles.profileSection}>
-                <ProfileCard
-                    avatarUrl="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop"
-                    miniAvatarUrl="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=100&auto=format&fit=crop"
-                    name="Kanishk Pandey"
-                    title="Full Stack Developer"
-                    handle="kanishkkpandey"
-                    status="Available for work"
-                    contactText="Contact"
-                    showUserInfo={true}
-                    enableTilt={true}
-                    onContactClick={() => {
-                        console.log('Contact clicked');
-                    }}
+            <div className={styles.backgroundWrapper}>
+                <Squares
+                    direction="diagonal"
+                    speed={0.5}
+                    borderColor="#444444"
+                    squareSize={40}
+                    hoverFillColor="orange"
                 />
+            </div>
+
+            <div className={styles.contentWrapper}>
+                <motion.h1
+                    className={styles.mainHeading}
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                >
+                    Kanishk Pandey
+                </motion.h1>
+
+                <motion.div
+                    className={styles.subHeadingWrapper}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.8, delay: 0.3 }}
+                >
+                    <RotatingText className={styles.RotatingText} texts={rotatingPhrases} />
+                </motion.div>
             </div>
         </div>
     );
