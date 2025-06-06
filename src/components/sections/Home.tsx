@@ -17,10 +17,11 @@ const Home: React.FC = () => {
                 <Squares
                     direction="diagonal"
                     speed={0.5}
-                    borderColor="#444444"
+                    borderColor="#3a3f5c"
                     squareSize={40}
-                    hoverFillColor="#333333"
+                    hoverFillColor="#2a2d42"
                 />
+                <div className={styles.gradientOverlay}></div>
             </div>
 
             <motion.div
@@ -41,6 +42,14 @@ const Home: React.FC = () => {
             </motion.div>
 
             <div className={styles.contentWrapper}>
+                <motion.span
+                    className={styles.accentText}
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.1 }}
+                >
+                    Hello, I'm
+                </motion.span>
                 <motion.h1
                     className={styles.mainHeading}
                     initial={{ opacity: 0, y: -20 }}

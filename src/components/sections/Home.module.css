@@ -7,6 +7,7 @@
   height: 100%;
   padding: 2rem;
   overflow: hidden;
+  background-color: #1a1a2e;
 }
 
 .backgroundWrapper {
@@ -16,6 +17,17 @@
   width: 100%;
   height: 100%;
   z-index: 0;
+}
+
+.gradientOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at top right, rgba(108, 99, 255, 0.15) 0%, rgba(0, 0, 0, 0) 50%),
+              radial-gradient(circle at bottom left, rgba(66, 153, 225, 0.15) 0%, rgba(0, 0, 0, 0) 50%);
+  z-index: 1;
 }
 
 .socialIcons {
@@ -33,7 +45,7 @@
 }
 
 .socialIcons a:hover {
-  color: #ffffff;
+  color: #6c63ff;
   transform: translateY(-2px);
 }
 
@@ -49,6 +61,14 @@
   align-items: center;
 }
 
+.accentText {
+  font-size: 1.2rem;
+  color: #6c63ff;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.05em;
+}
+
 .mainHeading {
   font-family: 'Georgia', 'Abril Fatface', serif;
   font-size: 4rem;
@@ -62,7 +82,7 @@
 
 .divider {
   height: 3px;
-  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.7) 50%, rgba(255,255,255,0) 100%);
+  background: linear-gradient(90deg, rgba(108, 99, 255, 0.2) 0%, rgba(108, 99, 255, 0.8) 50%, rgba(108, 99, 255, 0.2) 100%);
   margin-bottom: 2rem;
   border-radius: 2px;
 }
@@ -87,6 +107,7 @@
   overflow: hidden;
   white-space: nowrap;
   border-radius: 4px;
+  text-shadow: 0 0 10px rgba(108, 99, 255, 0.2);
 }
 
 .ctaContainer {
@@ -98,9 +119,9 @@
 .ctaButton {
   display: inline-block;
   padding: 0.8rem 1.6rem;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(108, 99, 255, 0.2);
   color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(108, 99, 255, 0.3);
   border-radius: 4px;
   font-size: 1rem;
   font-weight: 500;
@@ -110,20 +131,22 @@
 }
 
 .ctaButton:hover {
-  background-color: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.3);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: rgba(108, 99, 255, 0.3);
+  border-color: rgba(108, 99, 255, 0.5);
+  box-shadow: 0 4px 12px rgba(108, 99, 255, 0.2);
 }
 
 .secondaryButton {
   background-color: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(66, 153, 225, 0.3);
   color: #d4d4d4;
 }
 
 .secondaryButton:hover {
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(66, 153, 225, 0.1);
+  border-color: rgba(66, 153, 225, 0.5);
   color: #ffffff;
+  box-shadow: 0 4px 12px rgba(66, 153, 225, 0.1);
 }
 
 .scrollIndicator {
@@ -136,6 +159,10 @@
   font-size: 0.9rem;
   animation: bounce 2s infinite;
   cursor: pointer;
+}
+
+.scrollIndicator:hover {
+  color: #6c63ff;
 }
 
 .scrollIndicator svg {

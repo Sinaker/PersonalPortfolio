@@ -2,70 +2,326 @@
   padding: 2rem;
   height: 100%;
   overflow-y: auto;
+  position: relative;
+  background-image: radial-gradient(circle at bottom left, rgba(108, 99, 255, 0.05) 0%, rgba(0, 0, 0, 0) 60%);
 }
 
-.projectsGrid {
+.backgroundAccent {
+  position: absolute;
+  bottom: 10%;
+  right: -10%;
+  width: 20vw;
+  height: 20vw;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 69, 101, 0.03) 0%, rgba(0, 0, 0, 0) 70%);
+  z-index: -1;
+  filter: blur(50px);
+}
+
+.projectsHeader {
+  max-width: 800px;
+  margin-bottom: 2rem;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  position: relative;
+  display: inline-block;
+}
+
+.accentText {
+  color: #6c63ff;
+  text-shadow: 0 0 10px rgba(108, 99, 255, 0.3);
+}
+
+.sectionTitle::after {
+  content: '';
+  position: absolute;
+  width: 50%;
+  height: 4px;
+  bottom: -8px;
+  left: 0;
+  background: linear-gradient(90deg, #6c63ff, #FF4565);
+  border-radius: 2px;
+}
+
+.sectionDescription {
+  color: #c9d1d9;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-top: 1.5rem;
+}
+
+.filterContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.filterButton {
+  background: none;
+  border: 1px solid #3d3d3d;
+  color: #c9d1d9;
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.filterButton:hover {
+  border-color: #6c63ff;
+  color: #ffffff;
+}
+
+.filterButton.active {
+  background: linear-gradient(135deg, #6c63ff10, #FF456510);
+  border-color: #6c63ff;
+  color: #ffffff;
+}
+
+/* True Masonry Grid Layout */
+.masonryGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
-  padding: 1rem 0;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: masonry;
+  gap: 1.5rem;
 }
 
 .projectCard {
-  background-color: #252526;
-  border-radius: 8px;
-  padding: 1.5rem;
+  margin: 0;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  background-color: rgba(37, 37, 38, 0.8);
+  border-radius: 12px;
+  overflow: hidden;
   border: 1px solid #3c3c3c;
-  transition: transform 0.2s ease, border-color 0.2s ease;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
 .projectCard:hover {
-  transform: translateY(-2px);
-  border-color: #007acc;
+  transform: translateY(-5px);
+  border-color: #6c63ff;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
-.projectCard h3 {
+.projectCardAccent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 0;
+  background: linear-gradient(to bottom, #6c63ff, #FF4565);
+  transition: height 0.4s ease;
+}
+
+.projectCardAccent.hovered {
+  height: 100%;
+}
+
+.projectImageContainer {
+  overflow: hidden;
+  grid-row: 1;
+  width: 100%;
+}
+
+.projectImage {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.projectCard:hover .projectImage {
+  transform: scale(1.05);
+}
+
+.projectContent {
+  padding: 1.5rem;
+  grid-row: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.projectTitle {
   color: #ffffff;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.4rem;
+  font-weight: 600;
 }
 
-.projectCard p {
-  color: #a0a0a0;
-  margin-bottom: 1rem;
-  line-height: 1.5;
+.projectDescription {
+  color: #c9d1d9;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  flex-grow: 1;
 }
 
 .techStack {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+  margin-bottom: 1.5rem;
 }
 
-.techStack span {
-  background-color: #007acc;
-  color: #ffffff;
-  padding: 0.25rem 0.5rem;
+.techTag {
+  background-color: rgba(108, 99, 255, 0.1);
+  color: #6c63ff;
+  padding: 0.3rem 0.6rem;
   border-radius: 4px;
   font-size: 0.8rem;
   font-weight: 500;
+  border: 1px solid rgba(108, 99, 255, 0.3);
+}
+
+.projectLinks {
+  display: flex;
+  gap: 1rem;
+}
+
+.projectLink {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #c9d1d9;
+  text-decoration: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  background-color: rgba(30, 30, 46, 0.5);
+  border: 1px solid #3d3d3d;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.projectLink:hover {
+  background-color: rgba(108, 99, 255, 0.1);
+  border-color: #6c63ff;
+  color: #ffffff;
+}
+
+.liveLink {
+  background-color: rgba(255, 69, 101, 0.1);
+  border-color: rgba(255, 69, 101, 0.3);
+}
+
+.liveLink:hover {
+  background-color: rgba(255, 69, 101, 0.2);
+  border-color: #FF4565;
+}
+
+.moreProjectsContainer {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.moreProjectsLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #6c63ff;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid rgba(108, 99, 255, 0.3);
+  border-radius: 30px;
+  transition: all 0.3s ease;
+}
+
+.moreProjectsLink svg {
+  transition: transform 0.3s ease;
+}
+
+.moreProjectsLink:hover {
+  background-color: rgba(108, 99, 255, 0.1);
+  box-shadow: 0 4px 15px rgba(108, 99, 255, 0.2);
+}
+
+.moreProjectsLink:hover svg {
+  transform: translateX(5px);
+}
+
+/* Media queries for responsive grid */
+@media (max-width: 1200px) {
+  .masonryGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
   .contentContainer {
-    padding: 1rem;
+    padding: 1.5rem;
   }
 
-  .projectsGrid {
+  .masonryGrid {
     grid-template-columns: 1fr;
+  }
+
+  .sectionTitle {
+    font-size: 2rem;
+  }
+  
+  .sectionDescription {
+    font-size: 1rem;
   }
 }
 
 @media (max-width: 480px) {
   .contentContainer {
-    padding: 0.5rem;
-  }
-
-  .projectCard {
     padding: 1rem;
+  }
+  
+  .projectContent {
+    padding: 1.25rem;
+  }
+  
+  .sectionTitle {
+    font-size: 1.75rem;
+  }
+  
+  .filterContainer {
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    gap: 0.5rem;
+  }
+  
+  .filterButton {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+    white-space: nowrap;
+  }
+}
+
+/* Add support for browsers that don't support masonry yet */
+@supports not (grid-template-rows: masonry) {
+  .masonryGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+  
+  .projectCard {
+    flex: 0 0 calc(33.333% - 1rem);
+    margin-bottom: 1.5rem;
+  }
+  
+  @media (max-width: 1200px) {
+    .projectCard {
+      flex: 0 0 calc(50% - 0.75rem);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .projectCard {
+      flex: 0 0 100%;
+    }
   }
 }

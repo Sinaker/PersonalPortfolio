@@ -4,51 +4,474 @@
   overflow-y: auto;
 }
 
+.pageTitle {
+  font-size: 2.5rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+}
+
+.pageTitle::after {
+  content: '';
+  position: absolute;
+  width: 40%;
+  height: 4px;
+  bottom: -8px;
+  left: 0;
+  background: linear-gradient(90deg, rgba(108, 99, 255, 0.8), rgba(108, 99, 255, 0.1));
+  border-radius: 2px;
+}
+
+.pageIntro {
+  color: #c9d1d9;
+  max-width: 800px;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
 .skillsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2rem;
   padding: 1rem 0;
 }
 
 .skillCategory {
-  background-color: #252526;
+  background-color: rgba(30, 30, 46, 0.7);
   border-radius: 8px;
   padding: 1.5rem;
   border: 1px solid #3c3c3c;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.skillCategory:hover {
+  transform: translateY(-5px);
 }
 
 .skillCategory h3 {
   color: #ffffff;
   margin-bottom: 1rem;
   font-size: 1.25rem;
-  border-bottom: 2px solid #007acc;
+  border-bottom: 2px solid #6c63ff;
   padding-bottom: 0.5rem;
+  display: inline-block;
 }
 
 .skillCategory ul {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 0 0 1.5rem 0;
 }
 
 .skillCategory li {
-  padding: 0.5rem 0;
+  padding: 0.5rem 0 0.5rem 1.5rem;
   color: #d4d4d4;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
 }
 
 .skillCategory li:last-child {
   border-bottom: none;
 }
 
+.skillCategory li::before {
+  content: '▹';
+  position: absolute;
+  left: 0;
+  color: #6c63ff;
+}
+
+/* View Projects Button */
+.viewProjectsButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: rgba(108, 99, 255, 0.2);
+  color: #ffffff;
+  border: 1px solid rgba(108, 99, 255, 0.3);
+  border-radius: 4px;
+  padding: 0.75rem 1.25rem;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.viewProjectsButton:hover {
+  background-color: rgba(108, 99, 255, 0.3);
+  border-color: rgba(108, 99, 255, 0.5);
+}
+
+.viewProjectsButton svg {
+  transition: transform 0.3s ease;
+}
+
+.viewProjectsButton:hover svg {
+  transform: translateY(-2px);
+}
+
+.relatedProjects {
+  margin-top: 1.5rem;
+}
+
+.relatedProjects h4 {
+  color: #e6edf3;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  border-bottom: 1px dashed rgba(108, 99, 255, 0.3);
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.projectsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+}
+
+.projectCard {
+  background-color: rgba(30, 30, 46, 0.9);
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(108, 99, 255, 0.2);
+}
+
+.projectCard:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  border-color: rgba(108, 99, 255, 0.5);
+}
+
+.projectImage {
+  height: 100px;
+  overflow: hidden;
+}
+
+.projectImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.projectCard:hover .projectImage img {
+  transform: scale(1.05);
+}
+
+.projectInfo {
+  padding: 0.75rem;
+}
+
+.projectInfo h4 {
+  font-size: 0.9rem;
+  margin: 0 0 0.5rem 0;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.projectSkills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skillTag {
+  font-size: 0.7rem;
+  background-color: rgba(108, 99, 255, 0.2);
+  color: #c9d1d9;
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+  white-space: nowrap;
+  margin-bottom: 1rem;
+}
+
+/* Projects Dialog */
+.projectsDialog {
+  max-width: 900px;
+  width: 90%;
+  max-height: 80vh;
+  background-color: #1e1e2e;
+  border: 1px solid #3c3c3c;
+  border-radius: 8px;
+  padding: 0;
+  color: #ffffff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.projectsDialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(2px);
+}
+
+.dialogHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid #3c3c3c;
+  background-color: rgba(108, 99, 255, 0.1);
+}
+
+.dialogHeader h3 {
+  font-size: 1.4rem;
+  margin: 0;
+  color: #ffffff;
+}
+
+.dialogContent {
+  padding: 1.5rem;
+  overflow-y: auto;
+  max-height: calc(80vh - 80px);
+}
+
+.dialogProjectsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.dialogProjectCard {
+  display: flex;
+  gap: 1.5rem;
+  background-color: rgba(30, 30, 46, 0.6);
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #3c3c3c;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dialogProjectCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  border-color: rgba(108, 99, 255, 0.3);
+}
+
+.dialogProjectImage {
+  flex: 0 0 200px;
+  height: 200px;
+  overflow: hidden;
+}
+
+.dialogProjectImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.dialogProjectCard:hover .dialogProjectImage img {
+  transform: scale(1.05);
+}
+
+.dialogProjectInfo {
+  flex: 1;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.dialogProjectInfo h4 {
+  font-size: 1.2rem;
+  margin: 0 0 0.75rem 0;
+  color: #ffffff;
+}
+
+.dialogProjectInfo p {
+  color: #c9d1d9;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+  line-height: 1.6;
+}
+
+.projectActions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: auto;
+}
+
+.actionButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.githubButton {
+  background-color: rgba(108, 99, 255, 0.2);
+  color: #ffffff;
+  border: 1px solid rgba(108, 99, 255, 0.3);
+}
+
+.githubButton:hover {
+  background-color: rgba(108, 99, 255, 0.3);
+  border-color: rgba(108, 99, 255, 0.5);
+}
+
+.liveButton {
+  background-color: rgba(66, 153, 225, 0.2);
+  color: #ffffff;
+  border: 1px solid rgba(66, 153, 225, 0.3);
+}
+
+.liveButton:hover {
+  background-color: rgba(66, 153, 225, 0.3);
+  border-color: rgba(66, 153, 225, 0.5);
+}
+
+.detailsButton {
+  background-color: rgba(180, 180, 180, 0.1);
+  color: #ffffff;
+  border: 1px solid rgba(180, 180, 180, 0.2);
+}
+
+.detailsButton:hover {
+  background-color: rgba(180, 180, 180, 0.2);
+  border-color: rgba(180, 180, 180, 0.3);
+}
+
+.noProjects {
+  text-align: center;
+  color: #a0a0a0;
+  padding: 2rem;
+}
+
+/* Modal Styles */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.modalContent {
+  background-color: #1e1e2e;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #3c3c3c;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.closeButton {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(108, 99, 255, 0.2);
+  border: none;
+  color: white;
+  width: 30px;
+  height: 30px;
+  /* border-radius: 50%; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.2s ease;
+}
+
+.closeButton:hover {
+  scale: 1.05
+}
+
+.modalImage {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+
+.modalImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modalDetails {
+  padding: 1.5rem;
+}
+
+.modalDetails h3 {
+  color: #ffffff;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.modalDetails p {
+  color: #c9d1d9;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.modalActions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+/* Responsive Styles */
 @media (max-width: 768px) {
   .contentContainer {
     padding: 1rem;
   }
 
-  .skillsGrid {
-    grid-template-columns: 1fr;
+  .modalContent {
+    max-width: 95%;
+  }
+
+  .modalImage {
+    height: 200px;
+  }
+
+  .modalActions {
+    flex-direction: column;
+  }
+
+  .actionButton {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .projectsDialog {
+    width: 95%;
+  }
+  
+  .dialogProjectCard {
+    flex-direction: column;
+  }
+  
+  .dialogProjectImage {
+    flex: 0 0 160px;
+    height: 160px;
+  }
+  
+  .projectActions {
+    flex-wrap: wrap;
   }
 }
 
@@ -59,5 +482,37 @@
 
   .skillCategory {
     padding: 1rem;
+  }
+
+  .modalImage {
+    height: 160px;
+  }
+
+  .modalDetails {
+    padding: 1rem;
+  }
+
+  .pageTitle {
+    font-size: 2rem;
+  }
+  
+  .dialogHeader {
+    padding: 1rem;
+  }
+  
+  .dialogContent {
+    padding: 1rem;
+  }
+  
+  .dialogProjectInfo {
+    padding: 1rem;
+  }
+  
+  .projectActions {
+    flex-direction: column;
+  }
+  
+  .actionButton {
+    width: 100%;
   }
 }
