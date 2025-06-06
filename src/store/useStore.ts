@@ -2,7 +2,7 @@ import { create } from 'zustand';
 import { Html5, ReactLogo, CSS, JS } from "../assets/Icons";
 
 // Define tab types that correspond to sidebar items
-export type TabId = "home" | "about" | "skills" | "projects" | "contact" | "resume";
+export type TabId = "home" | "about" | "skills" | "projects" | "contact";
 
 export interface Tab {
     id: TabId;
@@ -36,11 +36,10 @@ export const useStore = create<StoreState>((set, get) => ({
     // Initial files in explorer
     files: [
         { id: "home", name: "Home.jsx", icon: ReactLogo, isActive: true },
-        { id: "about", name: "About.jsx", icon: ReactLogo, isActive: false },
+        { id: "about", name: "About.js", icon: JS, isActive: false },
         { id: "skills", name: "Skills.html", icon: Html5, isActive: false },
         { id: "projects", name: "Projects.jsx", icon: ReactLogo, isActive: false },
         { id: "contact", name: "Contact.css", icon: CSS, isActive: false },
-        { id: "resume", name: "Resume.js", icon: JS, isActive: false },
     ],
 
     // Activate a tab and update file explorer selection
@@ -83,7 +82,14 @@ export const useStore = create<StoreState>((set, get) => ({
                 }))
             });
         } else {
-            set({ tabs: remainingTabs });
+            set({
+                tabs: remainingTabs,
+                // Ensure file selection is still in sync
+                files: state.files.map(file => ({
+                    ...file,
+                    isActive: remainingTabs.some(tab => tab.id === file.id && tab.active)
+                }))
+            });
         }
     },
 
@@ -91,7 +97,7 @@ export const useStore = create<StoreState>((set, get) => ({
     selectFile: (fileId: TabId) => {
         const state = get();
 
-        // Update file selection
+        // Update file selection in explorer
         set({
             files: state.files.map(file => ({
                 ...file,
@@ -100,9 +106,9 @@ export const useStore = create<StoreState>((set, get) => ({
         });
 
         // Check if tab already exists
-        const tabExists = state.tabs.some(tab => tab.id === fileId);
+        const existingTab = state.tabs.find(tab => tab.id === fileId);
 
-        if (tabExists) {
+        if (existingTab) {
             // Activate existing tab
             set({
                 tabs: state.tabs.map(tab => ({

@@ -5,7 +5,7 @@ import File from "./file";
 import { useStore, TabId } from "../store/useStore";
 
 export default function FileExplorer({ className }: { className?: string }) {
-	const [isOpen, setIsOpen] = useState(true); // Set to true by default to show files
+	const [isOpen, setIsOpen] = useState(true);
 	const { files, selectFile } = useStore();
 
 	const handleFileClick = (fileId: TabId) => {
