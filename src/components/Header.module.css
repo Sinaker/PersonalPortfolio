@@ -1,84 +1,87 @@
 .root {
-	box-sizing: border-box;
-	background: #1f2428;
-	height: 30px;
-	width: 100%;
-	padding: 0 0.5rem;
+    box-sizing: border-box;
+    background: #1f2428;
+    height: 30px;
+    width: 100%;
+    padding: 0 0.5rem;
 
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
 
-	font-family: Source Sans Pro, sans-serif;
-	font-size: .85rem;
+    font-family: Source Sans Pro, sans-serif;
+    font-size: .85rem;
 
-	border-bottom: 1px solid #191d20;
+    border-bottom: 1px solid #191d20;
 }
 .logo {
-	width: 1.25rem;
+    width: 1.25rem;
 
-	display: flex;
-	align-items: center;
-	justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .logoimg {
-	max-width: 100%;
+    max-width: 100%;
 }
 .actions {
-	display: flex;
-	flex: 1 1;
-	margin-right: auto;
-	margin-left: 0.5rem;
+    display: flex;
+    flex: 1 1;
+    margin-right: auto;
+    margin-left: 0.5rem;
 }
 .actions p {
-	padding: 0 0.5rem;
-	border-radius: 0.35rem;
+    padding: 0 0.5rem;
+    border-radius: 0.35rem;
 }
 
 .title {
-	display: flex;
-	flex: 1 1;
-	align-items: center;
-	justify-content: center;
+    display: flex;
+    flex: 1 1;
+    align-items: center;
+    justify-content: center;
 
-	background-color: #242424;
-	border: 1px solid #454545;
-	border-radius: 0.3rem;
+    background-color: #242424;
+    border: 1px solid #454545;
+    border-radius: 0.3rem;
 
-	color: #c1ccac;
+    color: #c1ccac;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .buttons {
-	display: flex;
-	flex: 1 1;
-	align-items: center;
-	justify-content: right;
-	margin-left: auto;
-	gap: 0.5rem;
+    display: flex;
+    flex: 1 1;
+    align-items: center;
+    justify-content: right;
+    margin-left: auto;
+    gap: 0.5rem;
 }
 .buttons span {
-	width: 1rem;
-	height: 1rem;
-	border-radius: 50%;
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 .red {
-	background-color: #f55;
+    background-color: #f55;
 }
 .yellow {
-	margin-left: auto;
-	background-color: #f1fa8c;
+    margin-left: auto;
+    background-color: #f1fa8c;
 }
 .green {
-	background-color: #50fa7b;
+    background-color: #50fa7b;
 }
 
 p:hover {
-	background-color: #454545;
-	cursor: pointer;
+    background-color: #454545;
+    cursor: pointer;
 }
 .title:hover {
-	background-color: #303030;
+    background-color: #303030;
 }
 
 /* Easter eggs */
@@ -93,4 +96,44 @@ p:hover {
 
 .actions p {
   cursor: pointer;
+}
+
+/* Responsive styles for mobile */
+@media (max-width: 768px) {
+  /* Hide all menu options */
+  .actions {
+    display: none;
+  }
+  
+  /* Adjust title to take more space */
+  .title {
+    flex: 3;
+    font-size: 0.75rem;
+    padding: 0 0.5rem;
+	margin-left: auto;
+  }
+  
+  /* Hide yellow and green buttons */
+  .yellow, .green {
+    display: none;
+  }
+  
+  /* Adjust buttons container */
+  .buttons {
+    flex: 0;
+    /* margin-left: 0.5rem; */
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  .title {
+    max-width: 70vw;
+    font-size: 0.7rem;
+	margin-left: auto;
+  }
+  
+  .root {
+    padding: 0 0.25rem;
+  }
 }
