@@ -9,13 +9,12 @@
     transition: grid-template-columns 0.3s ease;
 }
 
-
 .explorerHiddenSideBarGone {
-	grid-template-areas:
-		"header header"
-		"sidepanel content"
-		"footer footer";
-	grid-template-columns: 4.5vw 1fr;
+    grid-template-areas:
+        "header header"
+        "sidepanel content"
+        "footer footer";
+    grid-template-columns: 4.5vw 1fr;
     height: 100vh;
 }
 
@@ -29,11 +28,12 @@
 
 .fileExplorer {
     grid-area: fileExplorer;
-    transition: width 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .content {
     grid-area: content;
+    overflow-y: auto;
 }
 
 .footer {
@@ -43,20 +43,52 @@
 /* Mobile responsiveness */
 @media (max-width: 768px) {
     .appContainer {
-        grid-template-columns: 4.5vw 0 1fr;
+        grid-template-areas:
+            "header header"
+            "sidepanel content"
+            "footer footer";
+        grid-template-columns: 40px 1fr;
     }
     
-    .explorerHidden {
-        grid-template-columns: 4.5vw 0 1fr;
+    .explorerHiddenSideBarGone {
+        grid-template-columns: 40px 1fr;
     }
     
     .fileExplorer {
-        position: absolute;
+        position: fixed;
         top: 30px; /* Header height */
         bottom: 25px; /* Footer height */
-        left: 4.5vw;
+        left: 40px; /* Width of sidepanel */
+        width: 80vw;
+        max-width: 300px;
         z-index: 100;
         background-color: #181818;
-        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+        transform: translateX(0);
+        transition: transform 0.3s ease;
+    }
+    
+    .explorerHiddenSideBarGone .fileExplorer {
+        transform: translateX(-100%);
+    }
+    
+    .content {
+        padding: 0 10px;
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+    .appContainer, 
+    .explorerHiddenSideBarGone {
+        grid-template-columns: 40px 1fr;
+    }
+    
+    .fileExplorer {
+        width: 85vw;
+    }
+    
+    .content {
+        padding: 0 5px;
     }
 }

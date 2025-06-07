@@ -8,7 +8,7 @@ const Contact: React.FC = () => {
 
     // Contact data with links
     const contactData = {
-        website: {
+        resume: {
             value: "/Resume.pdf",
             link: "/Resume.pdf"
         },
@@ -28,10 +28,10 @@ const Contact: React.FC = () => {
 
     // Create code snippet text
     const codeSnippet = `{
-  website: "${contactData.website.value}",
-  email: "${contactData.email.value}",
-  github: "${contactData.github.value}",
-  linkedin: "${contactData.linkedin.value}"
+        email: "${contactData.email.value}",
+        github: "${contactData.github.value}",
+        linkedin: "${contactData.linkedin.value}"
+        resume: "${contactData.resume.value}",
 };`;
 
     // Typing animation effect
@@ -103,7 +103,7 @@ const Contact: React.FC = () => {
 
                     <div className={styles.socialLinks}>
                         <motion.a
-                            href={contactData.website.link}
+                            href={contactData.resume.link}
                             target="_blank"
                             rel="noopener noreferrer"
                             whileHover={{ scale: 1.05 }}

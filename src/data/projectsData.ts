@@ -13,7 +13,7 @@ export const projectsData: Project[] = [
     {
         id: 'vscode-portfolio',
         title: 'VSCode Portfolio',
-        description: 'I developed this unique portfolio website to mimic the VSCode interface, complete with a functional sidebar, tabs, and explorer panel. The site features persistent tabs using localStorage, smooth animations with Framer Motion, and responsive design. Built with React and TypeScript, and deployed with Cloudflare Workers, this creative approach showcases both my frontend skills and my attention to detail in UI/UX design.',
+        description: 'After being trapped in VSCode for like my entire degree, why not just make it? The site features persistent tabs using localStorage, smooth animations with Framer Motion, and responsive design. Built with React, TypeScript, and deployed with Cloudflare Workers, this application took too much time than necessary.',
         image: '/VSCode.png',
         tech: ['React', 'TypeScript', 'Framer Motion', 'Cloudflare Workers', 'Responsive Design'],
         githubUrl: 'https://github.com/Sinaker/PersonalPortfolio',
