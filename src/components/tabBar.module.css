@@ -47,7 +47,7 @@
 .activeTab {
   background-color: #1e1e1e;
   color: #fff;
-  border-top: 1px solid orange; /* Orange accent color */
+  border-top: 1px solid #ff3a32; /* Orange accent color */
   /* Add subtle bottom indicator as well for active tab */
   box-shadow: inset 0 -1px 0 rgba(255, 165, 0, 0.1);
 }

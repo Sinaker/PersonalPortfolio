@@ -5,6 +5,7 @@ import Squares from '../../reactbits/Backgrounds/Squares/Squares';
 import styles from './Home.module.css';
 import { useStore } from '../../store/useStore'; // Import the store
 import { TbBrandLeetcode } from "react-icons/tb";
+import { IoDocumentTextOutline } from 'react-icons/io5';
 
 const Home: React.FC = () => {
     const { selectFile } = useStore(); // Get the selectFile function from the store
@@ -76,6 +77,20 @@ const Home: React.FC = () => {
                         style={{ color: 'currentColor' }}
                     >
                         <TbBrandLeetcode size={24} />
+                    </motion.div>
+                </a>
+                <a
+                    href="/Resume.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="LeetCode"
+                    style={{ position: 'relative' }}
+                >
+                    <motion.div
+                        whileHover={{ color: '#ff4565' }}
+                        style={{ color: 'currentColor' }}
+                    >
+                        <IoDocumentTextOutline size={24} />
                     </motion.div>
                 </a>
             </motion.div>

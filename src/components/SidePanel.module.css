@@ -21,7 +21,7 @@ aside {
 }
 
 .active svg {
-    border-left: 2px solid #6c63ff; /* Changed from orange to the theme color */
+    border-left: 2px solid #ff3a32; /* Changed from orange to the theme color */
     fill: rgb(225, 228, 232);
 }
 

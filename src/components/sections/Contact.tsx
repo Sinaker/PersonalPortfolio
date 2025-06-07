@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import styles from './Contact.module.css';
+import { IoDocumentTextOutline } from 'react-icons/io5';
 
 const Contact: React.FC = () => {
     const [typedText, setTypedText] = useState("");
@@ -8,8 +9,8 @@ const Contact: React.FC = () => {
     // Contact data with links
     const contactData = {
         website: {
-            value: "portfolio.kanishkpdev.workers.dev",
-            link: "portfolio.kanishkpdev.workers.dev"
+            value: "/Resume.pdf",
+            link: "/Resume.pdf"
         },
         email: {
             value: "kanishkpdev@gmail.com",
@@ -109,8 +110,8 @@ const Contact: React.FC = () => {
                             whileTap={{ scale: 0.95 }}
                             className={styles.websiteLink}
                         >
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-                            Website
+                            <IoDocumentTextOutline size={20} />
+                            Resume
                         </motion.a>
                         <motion.a
                             href={contactData.email.link}
