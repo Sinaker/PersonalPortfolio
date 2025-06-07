@@ -356,6 +356,86 @@
   box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3), 0 4px 10px rgba(255, 69, 101, 0.2);
   transform: translateY(-2px);
 }
+.techCarousel {
+  width: 100%;
+  background-color: #1e1e1e;
+  border-radius: 8px;
+  overflow: hidden;
+  font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border: 1px solid #3d3d3d;
+  margin-bottom: 1.5rem;
+}
+
+.carouselHeader {
+  background-color: #2d2d2d;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid #3d3d3d;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.carouselContent {
+  padding: 1.5rem 1rem 0.75rem;
+}
+
+.techStackGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem 1rem;
+  margin-bottom: 1rem;
+}
+
+.techItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.techItem:hover {
+  transform: translateY(-3px);
+}
+
+.techIcon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #6c63ff;
+  transition: color 0.3s ease;
+}
+
+.techItem:hover .techIcon {
+  color: #FF4565;
+}
+
+.techName {
+  font-size: 0.8rem;
+  color: #c9d1d9;
+}
+
+.carouselDots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.carouselDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #3d3d3d;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.activeDot {
+  background-color: #6c63ff;
+}
 
 /* Responsive Styles */
 @media (max-width: 1024px) {

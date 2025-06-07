@@ -80,3 +80,17 @@ p:hover {
 .title:hover {
 	background-color: #303030;
 }
+
+/* Easter eggs */
+.menuItem {
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.menuItem:hover {
+  color: #ffffff;
+}
+
+.actions p {
+  cursor: pointer;
+}

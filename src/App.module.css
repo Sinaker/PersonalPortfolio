@@ -1,26 +1,62 @@
 .appContainer {
-	display: grid;
+    display: grid;
+    grid-template-areas:
+        "header header header"
+        "sidepanel fileExplorer content"
+        "footer footer footer";
+    grid-template-columns: 4.5vw 13vw 1fr;
+    height: 100vh;
+    transition: grid-template-columns 0.3s ease;
+}
+
+
+.explorerHiddenSideBarGone {
 	grid-template-areas:
-		"header header header"
-		"sidepanel fileExplorer ."
-		"footer footer footer";	
-	grid-template-columns: 4.5vw 13vw 1fr; /* Adjust column widths */
-	/*4.5vw 18vw remaing*/
-	height: 100vh; /* Makes the app fill the viewport */
+		"header header"
+		"sidepanel content"
+		"footer footer";
+	grid-template-columns: 4.5vw 1fr;
+    height: 100vh;
 }
 
 .header {
-	grid-area: header;
+    grid-area: header;
 }
 
 .sidepanel {
-	grid-area: sidepanel;
+    grid-area: sidepanel;
 }
 
 .fileExplorer {
-	grid-area: fileExplorer;
+    grid-area: fileExplorer;
+    transition: width 0.3s ease;
+}
+
+.content {
+    grid-area: content;
 }
 
 .footer {
-	grid-area: footer;
+    grid-area: footer;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .appContainer {
+        grid-template-columns: 4.5vw 0 1fr;
+    }
+    
+    .explorerHidden {
+        grid-template-columns: 4.5vw 0 1fr;
+    }
+    
+    .fileExplorer {
+        position: absolute;
+        top: 30px; /* Header height */
+        bottom: 25px; /* Footer height */
+        left: 4.5vw;
+        z-index: 100;
+        background-color: #181818;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+    }
 }

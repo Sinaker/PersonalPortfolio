@@ -27,16 +27,16 @@ const projectsData: Project[] = [
         title: 'E-Commerce Dashboard',
         description: 'A real-time analytics dashboard for online stores with sales tracking, inventory management, and customer insights. Built with React, Node.js, and MongoDB.',
         image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600&auto=format&fit=crop',
-        skills: ['React', 'Node.js', 'MongoDB', 'Chart.js'],
+        skills: ['React.js', 'Node.js', 'MongoDB', 'RESTful APIs'],
         githubUrl: 'https://github.com/yourusername/ecommerce-dashboard',
         liveUrl: 'https://dashboard-demo.yourdomain.com',
     },
     {
         id: 'travel-app',
         title: 'Travel Planner App',
-        description: 'A mobile-first web application for planning trips with itinerary creation, budget tracking, and location bookmarking. Uses React Native and Firebase.',
+        description: 'A mobile-first web application for planning trips with itinerary creation, budget tracking, and location bookmarking. Uses Next.js and PostgreSQL.',
         image: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=600&auto=format&fit=crop',
-        skills: ['React Native', 'Firebase', 'Google Maps API'],
+        skills: ['Next.js', 'TypeScript', 'PostgreSQL'],
         githubUrl: 'https://github.com/yourusername/travel-planner',
         liveUrl: 'https://travelplanner.yourdomain.com',
     },
@@ -45,7 +45,7 @@ const projectsData: Project[] = [
         title: 'Content Management System',
         description: 'A custom CMS built for content creators with markdown support, media management, and automated publishing workflows. Powered by Node.js and PostgreSQL.',
         image: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=600&auto=format&fit=crop',
-        skills: ['Node.js', 'Express', 'PostgreSQL', 'JWT'],
+        skills: ['Node.js', 'Express', 'PostgreSQL', 'Docker'],
         githubUrl: 'https://github.com/yourusername/content-cms',
         liveUrl: 'https://cms-demo.yourdomain.com',
     },
@@ -54,59 +54,111 @@ const projectsData: Project[] = [
         title: 'Developer Portfolio',
         description: 'A responsive developer portfolio with VS Code-inspired design, featuring smooth animations and a dark theme. Built with React and TypeScript.',
         image: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=600&auto=format&fit=crop',
-        skills: ['React', 'TypeScript', 'Framer Motion'],
+        skills: ['React.js', 'TypeScript', 'HTML/CSS'],
         githubUrl: 'https://github.com/yourusername/portfolio',
         liveUrl: 'https://yourdomain.com',
     },
+    {
+        id: 'ml-sentiment-analyzer',
+        title: 'Sentiment Analysis Tool',
+        description: 'An NLP-powered sentiment analysis tool that processes customer reviews and feedback to extract insights and emotional trends.',
+        image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600&auto=format&fit=crop',
+        skills: ['Python', 'TensorFlow', 'Natural Language Processing'],
+        githubUrl: 'https://github.com/yourusername/sentiment-analyzer',
+        liveUrl: 'https://analyzer-demo.yourdomain.com',
+    },
+    {
+        id: 'kubernetes-deployment',
+        title: 'Microservices Deployment',
+        description: 'A comprehensive microservices architecture deployed with Kubernetes, featuring automated scaling, monitoring, and fault tolerance.',
+        image: 'https://images.unsplash.com/photo-1495615080073-6b89c9839ce0?q=80&w=600&auto=format&fit=crop',
+        skills: ['Docker', 'Kubernetes', 'CI/CD pipelines'],
+        githubUrl: 'https://github.com/yourusername/kubernetes-deployment',
+        liveUrl: 'https://microservices-demo.yourdomain.com',
+    },
 ];
 
-// Skills Data
+// Updated Skills Data
 const skillsData: SkillCategory[] = [
     {
-        id: 'frontend',
-        title: 'Frontend',
+        id: 'languages',
+        title: 'Programming Languages',
         skills: [
-            'React & React Native',
-            'TypeScript & JavaScript',
-            'HTML5 & CSS3',
-            'Redux & Context API',
-            'Responsive Design'
+            'JavaScript/TypeScript',
+            'Python',
+            'C/C++',
+            'Java',
+            'SQL',
+            'HTML/CSS'
         ],
         projects: projectsData.filter(project =>
             project.skills.some(skill =>
-                ['React', 'React Native', 'TypeScript', 'JavaScript', 'HTML5', 'CSS3'].includes(skill)
+                ['JavaScript', 'TypeScript', 'Python', 'C/C++', 'Java', 'SQL', 'HTML/CSS'].includes(skill)
             )
         ),
     },
     {
-        id: 'backend',
-        title: 'Backend',
+        id: 'frontend',
+        title: 'Web Development',
         skills: [
-            'Node.js & Express',
-            'REST APIs & GraphQL',
-            'MongoDB & PostgreSQL',
-            'Authentication & Security',
-            'Serverless Functions'
+            'React.js',
+            'Next.js',
+            'Node.js',
+            'Express',
+            'RESTful APIs',
+            'Responsive Design'
         ],
         projects: projectsData.filter(project =>
             project.skills.some(skill =>
-                ['Node.js', 'Express', 'MongoDB', 'PostgreSQL', 'JWT'].includes(skill)
+                ['React.js', 'Next.js', 'Node.js', 'Express', 'RESTful APIs', 'HTML/CSS'].includes(skill)
             )
         ),
     },
     {
         id: 'devops',
-        title: 'DevOps & Tools',
+        title: 'Cloud & DevOps',
         skills: [
-            'Git & GitHub',
-            'Docker & CI/CD',
-            'AWS & Netlify',
-            'Jest & Testing',
-            'Performance Optimization'
+            'Docker',
+            'Kubernetes',
+            'CI/CD pipelines',
+            'Cloudflare Workers',
+            'Version Control (Git)'
         ],
         projects: projectsData.filter(project =>
             project.skills.some(skill =>
-                ['AWS', 'Docker', 'CI/CD', 'Git'].includes(skill)
+                ['Docker', 'Kubernetes', 'CI/CD pipelines', 'Cloudflare Workers'].includes(skill)
+            )
+        ),
+    },
+    {
+        id: 'databases',
+        title: 'Databases',
+        skills: [
+            'MongoDB Atlas',
+            'SQLite',
+            'PostgreSQL',
+            'MYSQL',
+            'Query Optimization'
+        ],
+        projects: projectsData.filter(project =>
+            project.skills.some(skill =>
+                ['MongoDB', 'SQLite', 'PostgreSQL'].includes(skill)
+            )
+        ),
+    },
+    {
+        id: 'aiml',
+        title: 'AI & Machine Learning',
+        skills: [
+            'TensorFlow',
+            'Natural Language Processing',
+            'Classification Models',
+            'Data Analysis',
+            'Predictive Modeling'
+        ],
+        projects: projectsData.filter(project =>
+            project.skills.some(skill =>
+                ['TensorFlow', 'Natural Language Processing', 'Classification Models'].includes(skill)
             )
         ),
     },
@@ -114,6 +166,7 @@ const skillsData: SkillCategory[] = [
 
 // Project Modal Component
 const ProjectModal: React.FC<{ project: Project, onClose: () => void }> = ({ project, onClose }) => {
+    // Component code remains the same
     return (
         <div className={styles.modalOverlay} onClick={onClose}>
             <motion.div
@@ -172,6 +225,7 @@ const ProjectsDialog: React.FC<{
     onClose: () => void,
     onProjectClick: (project: Project) => void
 }> = ({ isOpen, category, onClose, onProjectClick }) => {
+    // Component code remains the same
     const dialogRef = useRef<HTMLDialogElement>(null);
 
     useEffect(() => {
@@ -270,8 +324,9 @@ const ProjectsDialog: React.FC<{
     );
 };
 
-// Project Card Component
+// Project Card Component 
 const ProjectCard: React.FC<{ project: Project, onClick: () => void }> = ({ project, onClick }) => {
+    // Component code remains the same
     return (
         <motion.div
             className={styles.projectCard}
@@ -298,6 +353,7 @@ const SkillSection: React.FC<{
     category: SkillCategory,
     onViewProjects: (category: SkillCategory) => void
 }> = ({ category, onViewProjects }) => {
+    // Component code remains the same
     return (
         <section className={styles.skillCategory}>
             <h3>{category.title}</h3>
@@ -357,7 +413,7 @@ const Skills: React.FC = () => {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
             >
-                With over 2 years of experience, I've developed expertise in various technologies
+                With over 3 years of experience, I've developed expertise in various technologies
                 and successfully delivered multiple projects. Here's what I bring to the table:
             </motion.p>
 

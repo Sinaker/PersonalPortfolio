@@ -1,25 +1,76 @@
 aside {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	width: 4.5vw;
-	min-width: 40px;
-	height: calc(100vh - 30px - 25px);
-	background-color: #181818;
-	margin-right: 1px solid gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 4.5vw;
+    min-width: 40px;
+    height: calc(100vh - 30px - 25px);
+    background-color: #181818;
+    margin-right: 1px solid gray;
 }
 
 .topicons svg,
 .explorer svg {
-	height: 3rem;
-	width: 100%;
-	padding: .65rem 0;
-	display: block;
-	margin: 0 auto;
-	border-left: 2px solid transparent;
-	transition: all 0.3s;
+    height: 3rem;
+    width: 100%;
+    padding: .65rem 0;
+    display: block;
+    margin: 0 auto;
+    border-left: 2px solid transparent;
+    transition: all 0.3s;
 }
+
 .active svg {
-	border-left: 2px solid orange;
-	fill: rgb(225, 228, 232);
+    border-left: 2px solid #6c63ff; /* Changed from orange to the theme color */
+    fill: rgb(225, 228, 232);
+}
+
+/* Add new styles for better UX */
+.iconContainer {
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.2s ease;
+}
+
+.iconContainer:hover {
+    background-color: #252526;
+}
+
+.iconContainer:hover svg {
+    fill: white;
+}
+
+/* Style for external links */
+.externalLink {
+    position: relative;
+}
+
+.externalLink::after {
+    content: '';
+    position: absolute;
+    right: 6px;
+    top: 6px;
+    width: 6px;
+    height: 6px;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    border-right: 1px solid rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.externalLink:hover::after {
+    opacity: 1;
+}
+
+/* Add responsive styles */
+@media (max-width: 768px) {
+    aside {
+        width: 40px;
+    }
+    
+    .topicons svg,
+    .explorer svg {
+        height: 2.5rem;
+        padding: .5rem 0;
+    }
 }

@@ -22,9 +22,15 @@ export interface FileItem {
 interface StoreState {
     tabs: Tab[];
     files: FileItem[];
+    isExplorerVisible: boolean;
+    activeSidebarIcon: number;
     activateTab: (tabId: TabId) => void;
     closeTab: (tabId: TabId) => void;
     selectFile: (fileId: TabId) => void;
+    toggleExplorer: () => void;
+    showExplorer: () => void;
+    hideExplorer: () => void;
+    setSidebarIcon: (iconIndex: number) => void;
 }
 
 export const useStore = create<StoreState>((set, get) => ({
@@ -41,6 +47,29 @@ export const useStore = create<StoreState>((set, get) => ({
         { id: "projects", name: "Projects.jsx", icon: ReactLogo, isActive: false },
         { id: "contact", name: "Contact.css", icon: CSS, isActive: false },
     ],
+    // Explorer visibility state
+    isExplorerVisible: true,
+    activeSidebarIcon: 0,
+
+    // Toggle explorer visibility
+    toggleExplorer: () => {
+        set(state => ({ isExplorerVisible: !state.isExplorerVisible }));
+    },
+
+    // Show explorer
+    showExplorer: () => {
+        set({ isExplorerVisible: true });
+    },
+
+    // Hide explorer
+    hideExplorer: () => {
+        set({ isExplorerVisible: false });
+    },
+
+    // Set active sidebar icon
+    setSidebarIcon: (iconIndex: number) => {
+        set({ activeSidebarIcon: iconIndex });
+    },
 
     // Activate a tab and update file explorer selection
     activateTab: (tabId: TabId) => {
