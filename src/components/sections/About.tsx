@@ -12,9 +12,16 @@ import {
   SiHono,
   SiCloudflareworkers
 } from 'react-icons/si';
+import { useStore } from '../../store/useStore'; // Import the store
 
 
 const About: React.FC = () => {
+  const { selectFile } = useStore();
+
+  const handleContactMe = (e: React.MouseEvent) => {
+    e.preventDefault();
+    selectFile("contact");
+  };
   // Tech carousel data
   const techStacks = [
     [
@@ -224,17 +231,17 @@ const About: React.FC = () => {
             </div>
           </div>
 
-          <motion.a
-            href="#contact"
+          <motion.span
             className={styles.connectButton}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            onClick={handleContactMe}
           >
             Let's Connect
-          </motion.a>
+          </motion.span>
         </motion.div>
       </div>
-    </div>
+    </div >
   );
 };
 
