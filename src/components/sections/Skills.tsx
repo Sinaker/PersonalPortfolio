@@ -1,172 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import styles from './Skills.module.css';
+import { Project, SkillCategory, generateSkillsData } from '../../data/projectsData';
 
-// Types
-interface Project {
-    id: string;
-    title: string;
-    description: string;
-    image: string;
-    skills: string[];
-    githubUrl: string;
-    liveUrl: string;
-}
-
-interface SkillCategory {
-    id: string;
-    title: string;
-    skills: string[];
-    projects: Project[];
-}
-
-// Project Data
-const projectsData: Project[] = [
-    {
-        id: 'ecommerce-dashboard',
-        title: 'E-Commerce Dashboard',
-        description: 'A real-time analytics dashboard for online stores with sales tracking, inventory management, and customer insights. Built with React, Node.js, and MongoDB.',
-        image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600&auto=format&fit=crop',
-        skills: ['React.js', 'Node.js', 'MongoDB', 'RESTful APIs'],
-        githubUrl: 'https://github.com/yourusername/ecommerce-dashboard',
-        liveUrl: 'https://dashboard-demo.yourdomain.com',
-    },
-    {
-        id: 'travel-app',
-        title: 'Travel Planner App',
-        description: 'A mobile-first web application for planning trips with itinerary creation, budget tracking, and location bookmarking. Uses Next.js and PostgreSQL.',
-        image: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=600&auto=format&fit=crop',
-        skills: ['Next.js', 'TypeScript', 'PostgreSQL'],
-        githubUrl: 'https://github.com/yourusername/travel-planner',
-        liveUrl: 'https://travelplanner.yourdomain.com',
-    },
-    {
-        id: 'content-cms',
-        title: 'Content Management System',
-        description: 'A custom CMS built for content creators with markdown support, media management, and automated publishing workflows. Powered by Node.js and PostgreSQL.',
-        image: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=600&auto=format&fit=crop',
-        skills: ['Node.js', 'Express', 'PostgreSQL', 'Docker'],
-        githubUrl: 'https://github.com/yourusername/content-cms',
-        liveUrl: 'https://cms-demo.yourdomain.com',
-    },
-    {
-        id: 'portfolio',
-        title: 'Developer Portfolio',
-        description: 'A responsive developer portfolio with VS Code-inspired design, featuring smooth animations and a dark theme. Built with React and TypeScript.',
-        image: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=600&auto=format&fit=crop',
-        skills: ['React.js', 'TypeScript', 'HTML/CSS'],
-        githubUrl: 'https://github.com/yourusername/portfolio',
-        liveUrl: 'https://yourdomain.com',
-    },
-    {
-        id: 'ml-sentiment-analyzer',
-        title: 'Sentiment Analysis Tool',
-        description: 'An NLP-powered sentiment analysis tool that processes customer reviews and feedback to extract insights and emotional trends.',
-        image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600&auto=format&fit=crop',
-        skills: ['Python', 'TensorFlow', 'Natural Language Processing'],
-        githubUrl: 'https://github.com/yourusername/sentiment-analyzer',
-        liveUrl: 'https://analyzer-demo.yourdomain.com',
-    },
-    {
-        id: 'kubernetes-deployment',
-        title: 'Microservices Deployment',
-        description: 'A comprehensive microservices architecture deployed with Kubernetes, featuring automated scaling, monitoring, and fault tolerance.',
-        image: 'https://images.unsplash.com/photo-1495615080073-6b89c9839ce0?q=80&w=600&auto=format&fit=crop',
-        skills: ['Docker', 'Kubernetes', 'CI/CD pipelines'],
-        githubUrl: 'https://github.com/yourusername/kubernetes-deployment',
-        liveUrl: 'https://microservices-demo.yourdomain.com',
-    },
-];
-
-// Updated Skills Data
-const skillsData: SkillCategory[] = [
-    {
-        id: 'languages',
-        title: 'Programming Languages',
-        skills: [
-            'JavaScript/TypeScript',
-            'Python',
-            'C/C++',
-            'Java',
-            'SQL',
-            'HTML/CSS'
-        ],
-        projects: projectsData.filter(project =>
-            project.skills.some(skill =>
-                ['JavaScript', 'TypeScript', 'Python', 'C/C++', 'Java', 'SQL', 'HTML/CSS'].includes(skill)
-            )
-        ),
-    },
-    {
-        id: 'frontend',
-        title: 'Web Development',
-        skills: [
-            'React.js',
-            'Next.js',
-            'Node.js',
-            'Express',
-            'RESTful APIs',
-            'Responsive Design'
-        ],
-        projects: projectsData.filter(project =>
-            project.skills.some(skill =>
-                ['React.js', 'Next.js', 'Node.js', 'Express', 'RESTful APIs', 'HTML/CSS'].includes(skill)
-            )
-        ),
-    },
-    {
-        id: 'devops',
-        title: 'Cloud & DevOps',
-        skills: [
-            'Docker',
-            'Kubernetes',
-            'CI/CD pipelines',
-            'Cloudflare Workers',
-            'Version Control (Git)'
-        ],
-        projects: projectsData.filter(project =>
-            project.skills.some(skill =>
-                ['Docker', 'Kubernetes', 'CI/CD pipelines', 'Cloudflare Workers'].includes(skill)
-            )
-        ),
-    },
-    {
-        id: 'databases',
-        title: 'Databases',
-        skills: [
-            'MongoDB Atlas',
-            'SQLite',
-            'PostgreSQL',
-            'MYSQL',
-            'Query Optimization'
-        ],
-        projects: projectsData.filter(project =>
-            project.skills.some(skill =>
-                ['MongoDB', 'SQLite', 'PostgreSQL'].includes(skill)
-            )
-        ),
-    },
-    {
-        id: 'aiml',
-        title: 'AI & Machine Learning',
-        skills: [
-            'TensorFlow',
-            'Natural Language Processing',
-            'Classification Models',
-            'Data Analysis',
-            'Predictive Modeling'
-        ],
-        projects: projectsData.filter(project =>
-            project.skills.some(skill =>
-                ['TensorFlow', 'Natural Language Processing', 'Classification Models'].includes(skill)
-            )
-        ),
-    },
-];
+// Get skills data from shared source
+const skillsData: SkillCategory[] = generateSkillsData();
 
 // Project Modal Component
 const ProjectModal: React.FC<{ project: Project, onClose: () => void }> = ({ project, onClose }) => {
-    // Component code remains the same
     return (
         <div className={styles.modalOverlay} onClick={onClose}>
             <motion.div
@@ -187,13 +28,13 @@ const ProjectModal: React.FC<{ project: Project, onClose: () => void }> = ({ pro
                     <p>{project.description}</p>
 
                     <div className={styles.projectSkills}>
-                        {project.skills.map(skill => (
+                        {project.tech.map(skill => (
                             <span key={skill} className={styles.skillTag}>{skill}</span>
                         ))}
                     </div>
 
                     <div className={styles.modalActions}>
-                        <a
+                        {project.githubUrl && <a
                             href={project.githubUrl}
                             target="_blank"
                             rel="noopener noreferrer"
@@ -201,7 +42,7 @@ const ProjectModal: React.FC<{ project: Project, onClose: () => void }> = ({ pro
                         >
                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
                             View GitHub
-                        </a>
+                        </a>}
                         <a
                             href={project.liveUrl}
                             target="_blank"
@@ -225,7 +66,6 @@ const ProjectsDialog: React.FC<{
     onClose: () => void,
     onProjectClick: (project: Project) => void
 }> = ({ isOpen, category, onClose, onProjectClick }) => {
-    // Component code remains the same
     const dialogRef = useRef<HTMLDialogElement>(null);
 
     useEffect(() => {
@@ -275,7 +115,7 @@ const ProjectsDialog: React.FC<{
                                     <p>{project.description}</p>
 
                                     <div className={styles.projectSkills}>
-                                        {project.skills.map(skill => (
+                                        {project.tech.map(skill => (
                                             <span key={skill} className={styles.skillTag}>{skill}</span>
                                         ))}
                                     </div>
@@ -291,7 +131,7 @@ const ProjectsDialog: React.FC<{
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
                                             View Code
                                         </a>
-                                        <a
+                                        {project.liveUrl && <a
                                             href={project.liveUrl}
                                             target="_blank"
                                             rel="noopener noreferrer"
@@ -300,7 +140,7 @@ const ProjectsDialog: React.FC<{
                                         >
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                                             See It Live
-                                        </a>
+                                        </a>}
                                         <button
                                             className={`${styles.actionButton} ${styles.detailsButton}`}
                                             onClick={() => {
@@ -329,7 +169,6 @@ const SkillSection: React.FC<{
     category: SkillCategory,
     onViewProjects: (category: SkillCategory) => void
 }> = ({ category, onViewProjects }) => {
-    // Component code remains the same
     return (
         <section className={styles.skillCategory}>
             <h3>{category.title}</h3>

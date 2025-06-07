@@ -92,16 +92,6 @@ const About: React.FC = () => {
             </p>
 
             <h3 className={styles.subheading}>
-              <span className={styles.accentIcon}>✦</span> Scalable Solutions & AI Focus
-            </h3>
-            <p>
-              I'm particularly interested in building <span className={styles.highlight}>scalable solutions</span> that can grow with user demand. My experience with containerization using Docker and orchestration with Kubernetes has taught me valuable lessons about designing systems that scale horizontally. I've implemented CI/CD pipelines that allow for seamless deployment of updates without service interruption.
-            </p>
-            <p>
-              In the <span className={styles.highlight}>machine learning</span> space, I've worked with TensorFlow to create models for medical image classification, achieving significant accuracy improvements through data augmentation and transfer learning techniques. I'm fascinated by the potential of AI to solve complex problems across industries and continue to expand my knowledge in this rapidly evolving field.
-            </p>
-
-            <h3 className={styles.subheading}>
               <span className={styles.accentIcon}>✦</span> Skills
             </h3>
             <div className={styles.skillsContainer}>
