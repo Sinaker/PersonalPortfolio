@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import styles from "./SidePanel.module.css";
 import { useStore } from "../store/useStore";
 import {
@@ -11,7 +11,6 @@ import {
 
 export default function SidePanel({ className }: { className?: string }) {
 	const {
-		isExplorerVisible,
 		toggleExplorer,
 		showExplorer,
 		activeSidebarIcon,

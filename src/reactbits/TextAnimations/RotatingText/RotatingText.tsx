@@ -1,8 +1,16 @@
 /*
-	Installed from https://reactbits.dev/ts/default/
+  Installed from https://reactbits.dev/ts/default/
 */
 
 "use client";
+
+// Add TypeScript declaration for Intl.Segmenter
+declare namespace Intl {
+  class Segmenter {
+    constructor(locale: string, options?: { granularity: string });
+    segment(input: string): Iterable<{ segment: string }>;
+  }
+}
 
 import React, {
   forwardRef,

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import styles from './About.module.css';
+import { VscAzure } from "react-icons/vsc";
+import { FaJava } from "react-icons/fa6";
 import {
   SiReact, SiTypescript, SiNodedotjs,
   SiExpress, SiMongodb, SiPython, SiDocker,
@@ -11,8 +13,6 @@ import {
   SiCloudflareworkers
 } from 'react-icons/si';
 
-import { VscAzure } from "react-icons/vsc";
-import { FaJava } from "react-icons/fa6";
 
 const About: React.FC = () => {
   // Tech carousel data

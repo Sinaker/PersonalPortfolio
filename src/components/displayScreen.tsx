@@ -1,5 +1,4 @@
 
-import React from "react";
 import styles from "./displayScreen.module.css";
 
 export default function DisplayScreen({ className }: { className?: string }) {

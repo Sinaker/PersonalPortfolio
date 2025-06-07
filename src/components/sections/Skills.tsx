@@ -324,30 +324,6 @@ const ProjectsDialog: React.FC<{
     );
 };
 
-// Project Card Component 
-const ProjectCard: React.FC<{ project: Project, onClick: () => void }> = ({ project, onClick }) => {
-    // Component code remains the same
-    return (
-        <motion.div
-            className={styles.projectCard}
-            whileHover={{ y: -5 }}
-            onClick={onClick}
-        >
-            <div className={styles.projectImage}>
-                <img src={project.image} alt={project.title} />
-            </div>
-            <div className={styles.projectInfo}>
-                <h4>{project.title}</h4>
-                <div className={styles.projectSkills}>
-                    {project.skills.slice(0, 3).map(skill => (
-                        <span key={skill} className={styles.skillTag}>{skill}</span>
-                    ))}
-                </div>
-            </div>
-        </motion.div>
-    );
-};
-
 // Skill Section Component
 const SkillSection: React.FC<{
     category: SkillCategory,

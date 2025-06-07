@@ -240,7 +240,7 @@ export const ReactFooter = () => (
 				height="38.40"
 				rx="19.2"
 				fill="#e1e4e8"
-				strokewidth="0"
+				strokeWidth="0"
 			></rect>
 		</g>
 		<g

@@ -8,8 +8,8 @@ const Contact: React.FC = () => {
     // Contact data with links
     const contactData = {
         website: {
-            value: "itscrazydev.netlify.app",
-            link: "https://itscrazydev.netlify.app"
+            value: "portfolio.kanishkpdev.workers.dev",
+            link: "portfolio.kanishkpdev.workers.dev"
         },
         email: {
             value: "kanishkpdev@gmail.com",
@@ -61,7 +61,7 @@ const Contact: React.FC = () => {
             .replace(/"([^"]+)":/g, '<span class="property">"$1"</span>:');
 
         // Second pass: replace values with clickable links
-        Object.entries(contactData).forEach(([key, data]) => {
+        Object.entries(contactData).forEach(([_, data]) => {
             const { value, link } = data;
             const valuePattern = new RegExp(`(: )"(${value})"`, 'g');
             highlightedCode = highlightedCode.replace(

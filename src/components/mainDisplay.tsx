@@ -6,7 +6,6 @@ import About from './sections/About';
 import Skills from './sections/Skills';
 import Projects from './sections/Projects';
 import Contact from './sections/Contact';
-import Resume from './sections/Resume';
 import styles from './MainDisplay.module.css';
 
 const MainDisplay: React.FC = () => {
@@ -26,8 +25,6 @@ const MainDisplay: React.FC = () => {
                 return <Projects />;
             case 'contact':
                 return <Contact />;
-            case 'resume':
-                return <Resume />;
         }
     };
 
