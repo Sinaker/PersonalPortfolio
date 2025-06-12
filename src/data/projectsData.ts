@@ -34,7 +34,7 @@ export const projectsData: Project[] = [
         description: 'Access to preliminary medical assessment is limited in many regions. I led a team of 4 to develop an AI system that processes natural language symptom descriptions to predict potential conditions with 85% accuracy. The solution combines Scikit Learn, Random Forest model and a Simple Chat interface to extract medical indicators from unstructured text, making healthcare information more accessible to users without technical or medical expertise.',
         image: '/CureGPT.png',
         tech: ['Python', 'Scikit Learn', 'NLP', 'Random Forest', 'Chat Interface'],
-        githubUrl: 'https://github.com/Sinaker/DRISHTI-DPS-FINAL',
+        githubUrl: 'https://github.com/Sinaker/cureGPT',
         liveUrl: ''
     },
     {

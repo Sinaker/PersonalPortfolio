@@ -98,7 +98,6 @@ const Contact: React.FC = () => {
                                 <div dangerouslySetInnerHTML={renderCodeWithInteractiveLinks()} />
                             </code>
                         </pre>
-                        <div className={styles.codePulse}></div>
                     </div>
 
                     <div className={styles.socialLinks}>

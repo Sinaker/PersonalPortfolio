@@ -48,12 +48,12 @@ export default function Header({ className }: { className?: string }) {
 			"I thought about making this functional, then I remembered I'm not crazy."
 		],
 		edit: [
-			"Edit? The portfolio is read-only!",
+			"You really expected this to do something...",
 			"How about I edit your brain into not clicking random buttons?",
 			"Definitely not a random message to fill space.",
 		],
 		view: [
-			"View → Toggle Light Mode → Are you sure?",
+			"View → Toggle Light Mode → Are you serious?",
 			"I promise there's no hidden terminal here.",
 			"View → Actual Projects would be a good command right now."
 		],
@@ -161,7 +161,7 @@ export default function Header({ className }: { className?: string }) {
 				fontSize: '14px',
 				maxWidth: '320px',
 			},
-			icon: '💻',
+			icon: '->',
 		});
 	};
 
