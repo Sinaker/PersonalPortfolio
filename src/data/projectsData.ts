@@ -45,6 +45,24 @@ export const projectsData: Project[] = [
         tech: ['EJS', 'Node.js', 'MongoDB', 'Geolocation', 'Media Optimization'],
         githubUrl: 'https://github.com/Sinaker/Heritage-WebWonders',
         liveUrl: ''
+    },
+    {
+        id: 'auto-checker',
+        title: 'Automatic Answer Sheet Checking System',
+        description: 'Manual checking of exam answer sheets was time-consuming and error-prone. To automate this, I built a prototype that uses PaddleOCR and Microsoft\'s TrOCR to extract handwritten text from scanned sheets. Users can upload images and define expected key points. The system then summarizes the detected text and evaluates it against expectations using cosine similarity, offering a fast and consistent scoring mechanism. A clean demo interface ensures easy usability for educators and institutions.',
+        image: '/AutoChecker.jpg',
+        tech: ['Tensorflow', 'LLM', 'PaddleOCR', 'TrOCR', 'Cosine Similarity', 'Text Summarization'],
+        githubUrl: '',
+        liveUrl: ''
+    },
+    {
+        id: 'helperbuddy',
+        title: 'Helperbuddy - Local Business Empowerment Platform',
+        description: 'As part of Google Winter of Code (GWOC), our team developed "Helperbuddy," a startup initiative that connects cleaning service providers with offices and homes. The platform focused on secure and scalable tech from the ground up, using Next.js, drizzle-orm, and Better Auth for seamless authentication. Although we didn\'t win, the project gave us valuable exposure to modern web architecture, secure backend practices, and real-world startup integration challenges.',
+        image: '/helperbuddy.png',
+        tech: ['Next.js', 'Drizzle ORM', 'Better Auth', 'Secure Web Architecture', 'TypeScript', 'PostgreSQL'],
+        githubUrl: '',
+        liveUrl: 'helperbuddy.vercel.app'
     }
 ];
 
@@ -121,7 +139,11 @@ export const generateSkillsData = (): SkillCategory[] => {
             ],
             projects: projectsData.filter(project =>
                 project.tech.some(tech =>
-                    ['MongoDB'].includes(tech)
+                    ['MongoDB', 'MongoDB Atlas',
+                        'SQLite',
+                        'PostgreSQL',
+                        'MySQL',
+                        'Query Optimization'].includes(tech)
                 )
             ),
         },
@@ -137,7 +159,7 @@ export const generateSkillsData = (): SkillCategory[] => {
             ],
             projects: projectsData.filter(project =>
                 project.tech.some(tech =>
-                    ['Scikit Learn', 'NLP', 'Random Forest', 'Chat Interface'].includes(tech)
+                    ['Scikit Learn', 'NLP', 'Random Forest', 'Chat Interface', 'Tensorflow', 'MLP', 'CNN', 'RNN', 'LLM'].includes(tech)
                 )
             ),
         },
