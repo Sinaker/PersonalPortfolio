@@ -42,9 +42,9 @@ export const projectsData: Project[] = [
         title: 'Darshan: The Wikipedia of Indian Heritage',
         description: 'India\'s cultural heritage lacked unified digital representation. I created an interactive platform using EJS, Node.js and MongoDB that centralizes information about historical sites with geolocation-based discovery. The implementation includes optimized media loading resulting in first place recognition at WebWonders 2024 among 20+ competing teams.',
         image: '/Darshan.png',
-        tech: ['EJS', 'Node.js', 'MongoDB', 'Geolocation', 'Media Optimization'],
+        tech: ['EJS', 'Node.js', 'MongoDB', 'Geolocation', 'Media Optimization', 'Azure', 'Github Actions', 'CI/CD'],
         githubUrl: 'https://github.com/Sinaker/Heritage-WebWonders',
-        liveUrl: ''
+        liveUrl: 'https://darshan.azurewebsites.net'
     },
     {
         id: 'auto-checker',

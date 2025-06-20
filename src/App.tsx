@@ -3,7 +3,7 @@ import FileExplorer from "./components/fileExplorer.tsx";
 import Header from "./components/header.tsx";
 import SidePanel from "./components/sidepanel.tsx";
 import Footer from "./components/footer.tsx";
-import MainDisplay from "./components/MainDisplay.tsx";
+import MainDisplay from "./components/mainDisplay.tsx";
 import { useStore } from "./store/useStore.ts";
 import styles from "./App.module.css";
 
@@ -18,7 +18,6 @@ export default function App() {
 				toggleExplorer();
 			}
 		};
-
 		window.addEventListener('keydown', handleKeyDown);
 
 		return () => {
