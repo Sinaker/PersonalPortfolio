@@ -6,7 +6,7 @@ import About from './sections/About';
 import Skills from './sections/Skills';
 import Projects from './sections/Projects';
 import Contact from './sections/Contact';
-import styles from './MainDisplay.module.css';
+import styles from './mainDisplay.module.css';
 
 const MainDisplay: React.FC = () => {
     const { files } = useStore();
