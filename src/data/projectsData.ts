@@ -42,7 +42,7 @@ export const projectsData: Project[] = [
         title: 'Darshan: The Wikipedia of Indian Heritage',
         description: 'India\'s cultural heritage lacked unified digital representation. I created an interactive platform using EJS, Node.js and MongoDB that centralizes information about historical sites with geolocation-based discovery. The implementation includes optimized media loading resulting in first place recognition at WebWonders 2024 among 20+ competing teams.',
         image: '/Darshan.png',
-        tech: ['EJS', 'Node.js', 'MongoDB', 'Geolocation', 'Media Optimization', 'Azure', 'Github Actions', 'CI/CD'],
+        tech: ['EJS', 'Node.js', 'MongoDB', 'Geolocation', 'Azure', 'Github Actions', 'CI/CD'],
         githubUrl: 'https://github.com/Sinaker/Heritage-WebWonders',
         liveUrl: 'https://darshan.azurewebsites.net'
     },
@@ -51,7 +51,7 @@ export const projectsData: Project[] = [
         title: 'Automatic Answer Sheet Checking System',
         description: 'Manual checking of exam answer sheets was time-consuming and error-prone. To automate this, I built a prototype that uses PaddleOCR and Microsoft\'s TrOCR to extract handwritten text from scanned sheets. Users can upload images and define expected key points. The system then summarizes the detected text and evaluates it against expectations using cosine similarity, offering a fast and consistent scoring mechanism. A clean demo interface ensures easy usability for educators and institutions.',
         image: '/AutoChecker.jpg',
-        tech: ['Tensorflow', 'LLM', 'PaddleOCR', 'TrOCR', 'Cosine Similarity', 'Text Summarization'],
+        tech: ['Tensorflow', 'LLM', 'Text Summarization'],
         githubUrl: '',
         liveUrl: ''
     },
@@ -60,7 +60,7 @@ export const projectsData: Project[] = [
         title: 'Helperbuddy - Local Business Empowerment Platform',
         description: 'As part of Google Winter of Code (GWOC), our team developed "Helperbuddy," a startup initiative that connects cleaning service providers with offices and homes. The platform focused on secure and scalable tech from the ground up, using Next.js, drizzle-orm, and Better Auth for seamless authentication. Although we didn\'t win, the project gave us valuable exposure to modern web architecture, secure backend practices, and real-world startup integration challenges.',
         image: '/helperbuddy.png',
-        tech: ['Next.js', 'Drizzle ORM', 'Better Auth', 'Secure Web Architecture', 'TypeScript', 'PostgreSQL'],
+        tech: ['Next.js', 'TypeScript', 'PostgreSQL'],
         githubUrl: '',
         liveUrl: 'helperbuddy.vercel.app'
     }

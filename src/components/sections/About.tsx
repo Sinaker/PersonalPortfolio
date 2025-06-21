@@ -81,60 +81,29 @@ const About: React.FC = () => {
 
           <div className={styles.contentBlock}>
             <p>
-              I'm <span className={styles.highlight}>Kanishk Pandey</span>, a Computer Science undergraduate at SVNIT with a passion for building impactful solutions at the intersection of web technologies and artificial intelligence. With a 9.05/10 CGPA and ranked in the top 5% of my department, I combine strong academic foundations with practical projects experience. I thrive on solving complex problems through elegant code and innovative approaches, whether I'm building full-stack applications or training machine learning models.
+              I'm <span className={styles.highlight}>Kanishk Pandey</span>, a Computer Science undergraduate at SVNIT with a passion for building impactful solutions at the intersection of web technologies and artificial intelligence. With a 9.05/10 CGPA and ranked in the top 5% of my department. I specialize in full-stack development, and AI implementation. With intermediate knowledge in cloud infrastructure .My goal is to create innovative applications that enhance user experiences and solve real-world problems.
             </p>
 
             <h3 className={styles.subheading}>
-              <span className={styles.accentIcon}>✦</span> Experience & Expertise
+              <span className={styles.accentIcon}>✦</span> Skills and Achievements
             </h3>
-            <p>
-              My technical journey spans full-stack development, AI implementation, and cloud infrastructure engineering. I led development of an award-winning cultural heritage platform "Darshan" (WebWonders 2024), created a faculty consultancy management system that reduced administrative overhead by 25%, and built an AI disease classifier achieving 85% accuracy. I always prefer to use current technologies and not standard textbook technologies, which makes me adaptable and ready to learn something new!
-            </p>
+            <div className={styles.skillsList}>
+              <li>My technical journey spans <span className={styles.highlight}>full-stack development</span>, <span className={styles.highlight}>AI implementation</span>, and <span className={styles.highlight}>cloud infrastructure</span> engineering.</li>
 
-            <h3 className={styles.subheading}>
-              <span className={styles.accentIcon}>✦</span> Skills
-            </h3>
-            <div className={styles.skillsContainer}>
-              <motion.div
-                className={styles.skillCategory}
-                whileHover={{ y: -5 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                <div className={styles.skillCategoryHeader}>
-                  <span className={styles.skillIcon}>💻</span>
-                  <h4>Technical Skills</h4>
-                </div>
-                <ul className={styles.skillsList}>
-                  <li>Frontend: React, TypeScript, NextJS</li>
-                  <li>Backend: Node.js, Hono, Express, MongoDB, SQL</li>
-                  <li>Tools: Git, Docker, Azure</li>
-                  <li>Programming Language: C/C++, Java, Python</li>
-                </ul>
-              </motion.div>
+              <li>Led development of an award-winning cultural heritage platform <span className={styles.highlight}>"Darshan"</span> (WebWonders 2024 winner).</li>
 
-              <motion.div
-                className={styles.skillCategory}
-                whileHover={{ y: -5 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                <div className={styles.skillCategoryHeader}>
-                  <span className={styles.skillIcon}>🧠</span>
-                  <h4>Soft Skills</h4>
-                </div>
-                <ul className={styles.skillsList}>
-                  <li>Problem Solving</li>
-                  <li>Communication</li>
-                  <li>Team Collaboration</li>
-                  <li>Project Management</li>
-                </ul>
-              </motion.div>
+              <li>Created a faculty consultancy management system that reduced administrative overhead by <span className={styles.highlight}>25%</span>.</li>
+
+              <li>Built an AI disease classifier achieving <span className={styles.highlight}>85% accuracy</span> in symptom-based prediction.</li>
+
+              <li>I prefer using current technologies over textbook solutions, making me adaptable and eager to learn new skills.</li>
             </div>
 
             <h3 className={styles.subheading}>
               <span className={styles.accentIcon}>✦</span> Beyond Coding
             </h3>
             <p>
-              When I'm not crafting code, you'll find me exploring hiking trails, playing table tennis, or watching an in depth youtube video on some random obscure topic. At least I do something except coding.
+              When I'm not crafting code, you'll find me playing table tennis, a bit of piano, or watching an in depth youtube video on some random obscure topic. At least I do something except coding.
             </p>
 
             <div className={styles.callToAction}>
