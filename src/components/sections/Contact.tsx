@@ -9,7 +9,7 @@ const Contact: React.FC = () => {
     // Contact data with links
     const contactData = {
         resume: {
-            value: "/Resume.pdf",
+            value: "Resume.pdf",
             link: "/Resume.pdf"
         },
         email: {

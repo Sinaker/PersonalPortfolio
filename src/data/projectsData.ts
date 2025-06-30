@@ -15,7 +15,7 @@ export const projectsData: Project[] = [
         title: 'VSCode Portfolio',
         description: 'After being trapped in VSCode for like my entire degree, why not just make it? The site features persistent tabs using localStorage, smooth animations with Framer Motion, and responsive design. Built with React, TypeScript, and deployed with Cloudflare Workers, this application took too much time than necessary.',
         image: '/VSCode.png',
-        tech: ['React', 'TypeScript', 'Framer Motion', 'Cloudflare Workers', 'Responsive Design'],
+        tech: ['React', 'TypeScript', 'Framer Motion', 'Cloudflare Workers'],
         githubUrl: 'https://github.com/Sinaker/PersonalPortfolio',
         liveUrl: 'https://portfolio.kanishkpdev.workers.dev'
     },
@@ -42,7 +42,7 @@ export const projectsData: Project[] = [
         title: 'Darshan: The Wikipedia of Indian Heritage',
         description: 'India\'s cultural heritage lacked unified digital representation. I created an interactive platform using EJS, Node.js and MongoDB that centralizes information about historical sites with geolocation-based discovery. The implementation includes optimized media loading resulting in first place recognition at WebWonders 2024 among 20+ competing teams.',
         image: '/Darshan.png',
-        tech: ['EJS', 'Node.js', 'MongoDB', 'Geolocation', 'Azure', 'Github Actions', 'CI/CD'],
+        tech: ['EJS', 'Node.js', 'MongoDB', 'Geolocation', 'Azure', 'Github Actions', 'CI/CD', 'Authentication'],
         githubUrl: 'https://github.com/Sinaker/Heritage-WebWonders',
         liveUrl: 'https://darshan.azurewebsites.net'
     },
@@ -60,7 +60,7 @@ export const projectsData: Project[] = [
         title: 'Helperbuddy - Local Business Empowerment Platform',
         description: 'As part of Google Winter of Code (GWOC), our team developed "Helperbuddy," a startup initiative that connects cleaning service providers with offices and homes. The platform focused on secure and scalable tech from the ground up, using Next.js, drizzle-orm, and Better Auth for seamless authentication. Although we didn\'t win, the project gave us valuable exposure to modern web architecture, secure backend practices, and real-world startup integration challenges.',
         image: '/helperbuddy.png',
-        tech: ['Next.js', 'TypeScript', 'PostgreSQL'],
+        tech: ['Next.js', 'TypeScript', 'PostgreSQL', 'Authentication'],
         githubUrl: '',
         liveUrl: 'helperbuddy.vercel.app'
     }
@@ -103,7 +103,6 @@ export const generateSkillsData = (): SkillCategory[] => {
                 'Node.js',
                 'Express',
                 'RESTful APIs',
-                'Responsive Design'
             ],
             projects: projectsData.filter(project =>
                 project.tech.some(tech =>
